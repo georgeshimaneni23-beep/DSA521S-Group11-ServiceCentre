@@ -27,7 +27,7 @@ def render(lines, out_name, title):
     lines = [l.rstrip("\n").replace("\t", "    ") for l in lines]
     width_chars = max([len(l) for l in lines] + [len(title) + 10, 60])
     char_w = FONT.getlength("M")
-    w = int(PAD * 2 + char_w * width_chars) + 8
+    w = int(PAD * 2 + char_w * (width_chars + 2)) + 8
     h = PAD * 2 + LH * len(lines) + 34
     img = Image.new("RGB", (w, h), BG)
     d = ImageDraw.Draw(img)
