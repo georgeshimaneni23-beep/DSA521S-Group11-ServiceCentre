@@ -5,6 +5,8 @@ from docx.shared import Pt, Mm, RGBColor
 from docx.enum.text import WD_ALIGN_PARAGRAPH, WD_BREAK
 from docx.oxml.ns import qn
 from docx.oxml import OxmlElement
+import sys; sys.path.insert(0, "/home/user/workspace/DSA521S_Project/tools")
+from ooxml_order import add_tbl_pr, add_p_pr
 from docx.enum.section import WD_ORIENT
 
 BASE = "/home/user/workspace/DSA521S_Project"
@@ -87,7 +89,7 @@ def rule(colour="01696F"):
     b.set(qn("w:sz"), "12")
     b.set(qn("w:color"), colour)
     pBdr.append(b)
-    p._p.get_or_add_pPr().append(pBdr)
+    add_p_pr(p._p.get_or_add_pPr(), pBdr)
 
 
 # ---------------- cover ----------------

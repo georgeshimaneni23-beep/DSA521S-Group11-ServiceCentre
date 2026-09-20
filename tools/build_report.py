@@ -218,7 +218,7 @@ code("""
 +---------+   +-----------+   +----------+              exact order in which they arrived.
 """, 7.0)
 P("Pseudocode for <font name='%s' size='8.5'>enqueue()</font> and "
-  "<font name='%s' size='8.5'>dequeue()</font> is given in section 5.1." % (MONO, MONO))
+  "<font name='%s' size='8.5'>dequeue()</font> is given in section 6.1." % (MONO, MONO))
 shot("07_taskA1_queue_demo.png",
      "Figure 1 &mdash; Task A1: six arrivals (enqueue), peek(), isEmpty(), displayQueue() and three students served (dequeue).")
 H3("Why a queue is appropriate")

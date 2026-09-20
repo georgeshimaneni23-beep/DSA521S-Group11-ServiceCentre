@@ -7,6 +7,8 @@ from docx.enum.text import WD_ALIGN_PARAGRAPH
 from docx.enum.table import WD_TABLE_ALIGNMENT
 from docx.oxml.ns import qn
 from docx.oxml import OxmlElement
+import sys; sys.path.insert(0, "/home/user/workspace/DSA521S_Project/tools")
+from ooxml_order import add_tbl_pr, add_p_pr
 
 BASE = "/home/user/workspace/DSA521S_Project"
 INK = RGBColor(0x28, 0x25, 0x1D)
@@ -34,7 +36,7 @@ def borders(tbl):
         e.set(qn("w:sz"), "4")
         e.set(qn("w:color"), "D4D1CA")
         b.append(e)
-    tbl._tbl.tblPr.append(b)
+    add_tbl_pr(tbl._tbl.tblPr, b)
 
 
 def hyperlink(par, url, text):
@@ -195,7 +197,7 @@ def convert(md_path, out_path, title, landscape_code=False, code_size=8.5):
                 b = OxmlElement("w:bottom")
                 b.set(qn("w:val"), "single"); b.set(qn("w:sz"), "12"); b.set(qn("w:color"), TEAL_HEX)
                 pBdr.append(b)
-                rp._p.get_or_add_pPr().append(pBdr)
+                add_p_pr(p._p.get_or_add_pPr(), pBdr)
             else:
                 pf.space_before = Pt(11); pf.space_after = Pt(3)
                 inline(p, text, size=11.5, bold=True, color=INK)

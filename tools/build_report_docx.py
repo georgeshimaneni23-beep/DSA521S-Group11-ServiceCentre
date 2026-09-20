@@ -12,6 +12,8 @@ from docx.enum.table import WD_TABLE_ALIGNMENT
 from docx.enum.section import WD_SECTION
 from docx.oxml.ns import qn
 from docx.oxml import OxmlElement
+import sys; sys.path.insert(0, "/home/user/workspace/DSA521S_Project/tools")
+from ooxml_order import add_tbl_pr, add_p_pr
 
 BASE = "/home/user/workspace/DSA521S_Project"
 SHOTS = os.path.join(BASE, "screenshots")
@@ -62,7 +64,7 @@ def _borders(tbl):
         e.set(qn("w:sz"), "4")
         e.set(qn("w:color"), "D4D1CA")
         borders.append(e)
-    tblPr.append(borders)
+    add_tbl_pr(tblPr, borders)
 
 
 def _repeat_header(row):
@@ -191,7 +193,7 @@ def H1(t):
     bottom.set(qn("w:sz"), "12")
     bottom.set(qn("w:color"), TEAL_HEX)
     pBdr.append(bottom)
-    rule._p.get_or_add_pPr().append(pBdr)
+    add_p_pr(rule._p.get_or_add_pPr(), pBdr)
 
 
 def H2(t):
@@ -218,6 +220,7 @@ def bullets(items):
 
 
 def code(text, size=8.2):
+    size = size * 0.93
     tbl = doc.add_table(rows=1, cols=1)
     tbl.alignment = WD_TABLE_ALIGNMENT.LEFT
     _borders(tbl)
@@ -303,9 +306,18 @@ class PageBreak:
     pass
 
 
+_breaks = []
+
+
 def A(item):
     if isinstance(item, PageBreak):
-        doc.add_paragraph().add_run().add_break(WD_BREAK.PAGE)
+        if not _breaks:          # keep only the break after the cover page
+            _breaks.append(1)
+            doc.add_paragraph().add_run().add_break(WD_BREAK.PAGE)
+            return
+        # Word reflows text differently from the PDF, so the PDF's fixed page
+        # breaks are ignored here and the document is allowed to flow naturally.
+        pass
     elif isinstance(item, Spacer):
         par = doc.add_paragraph()
         par.paragraph_format.space_after = Pt(max(2.0, item.h * 2.0))
