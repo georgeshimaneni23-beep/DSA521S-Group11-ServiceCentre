@@ -7,7 +7,7 @@ Visibility: **public**, so the lecturer can open the link without an invitation.
 
 * The repository was created under George's account.
 * All project files were pushed to the `main` branch.
-* The history is **15 separate commits**, one per component, with meaningful messages such as
+* The history is **a series of separate commits**, one per component, with meaningful messages such as
   `Implemented Queue for the waiting line: enqueue, dequeue, peek, isEmpty, displayQueue (Task A1)`
   and `Implemented Selection, Insertion, Merge and Quick Sort with comparison and movement counters (Part B)`.
   You can see them with `git log --oneline` or on the repository's commits page.
