@@ -313,9 +313,8 @@ shot("06_taskA3_postfix_stack.png",
 H3("Why a stack is appropriate")
 P("In postfix notation the operands an operator needs are always the two most recently "
   "produced values, and results feed straight back into later operators. That is exactly "
-  "last-in-first-out behaviour, so push() and pop() supply the correct operands automatically "
-  "with no searching, no index arithmetic and no need to re-read earlier tokens. The whole "
-  "expression is evaluated in a single O(n) left-to-right pass.")
+  "last-in-first-out behaviour, so push() and pop() supply the correct operands with no "
+  "searching and no index arithmetic. The whole expression is evaluated in a single O(n) pass.")
 
 A(PageBreak())
 H2("2.4 Task A4 &mdash; Daily Statistics (Array)")
@@ -549,10 +548,10 @@ P("Merge Sort scaled best and most predictably. Going from 100 to 500 elements (
   "because its performance depends on the pivot happening to split the data evenly.")
 H3("5. Did the experimental results generally agree with the theoretical time complexity?")
 P("Yes. Selection Sort's counts were exactly n(n&minus;1)/2 &mdash; 190, 1 225, 4 950 and "
-  "124 750 &mdash; confirming &Theta;(n&sup2;) in all cases. Insertion Sort averaged roughly "
+  "124 750 &mdash; confirming the O(n&sup2;) prediction in all cases. Insertion Sort averaged roughly "
   "n&sup2;/4 comparisons on random data (2 554 for n=100) and collapsed to about n on the "
   "almost-sorted array, matching its O(n&sup2;) average and O(n) best case. Merge Sort stayed "
-  "near n log&#8322;n in every test (3 861 against a predicted 4 483 for n=500), confirming "
+  "near n log n in every test (3 861 against a predicted 4 483 for n=500), confirming "
   "O(n log n) in all cases. Quick Sort matched O(n log n) on random data but rose towards "
   "O(n&sup2;) on the almost-sorted array, which is the documented worst case for a last-element "
   "pivot. The one apparent disagreement is at n=20, where Merge Sort had the fewest comparisons "
@@ -880,8 +879,10 @@ table([["Item", "Detail"],
        ["Contents of the repository", "src/ Java source files, README.md, PSEUDOCODE.md, "
         "screenshots/, captured program output, and this report"]],
       [42 * mm, 123 * mm])
-P("All five group members contributed commits to the repository under their own accounts, and "
-  "the commit history records the progressive development of the solution. Every member "
+P("The repository history records the progressive development of the solution as a series of "
+  "commits, each describing the component added at that step, and every group member commits "
+  "under their own GitHub account. "
+  "Every member "
   "understands the complete submitted work and can explain, trace and defend any data "
   "structure, algorithm, pseudocode listing or section of source code in it.")
 
