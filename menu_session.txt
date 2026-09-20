@@ -1,0 +1,313 @@
+
+========================================
+        CAMPUS SERVICE CENTRE
+========================================
+ 1. Add student to waiting queue
+ 2. Serve next student (remove from queue)
+ 3. Display waiting students
+ 4. Add student service record (Linked List - insertStudent())
+ 5. Display student service records
+ 6. Search for student record
+ 7. Remove student record
+ 8. Display daily statistics
+ 9. Sort service times
+10. Run sorting experiment
+11. Exit
+========================================
+Select option: 
+--- WAITING QUEUE (front to rear) ---
+Pos  StudentNo  Name       Service            Est.Time
+1    221045678  Maria      Registration        12 min
+2    222034512  Tomas      Student Card         5 min
+3    223041876  Ndapewa    Fees                 8 min
+4    221067341  Simon      Documents            4 min
+Front of queue : Maria(221045678)
+Rear of queue  : Simon(221067341)
+Students waiting: 4
+Queue diagram: FRONT -> [Maria] -> [Tomas] -> [Ndapewa] -> [Simon] -> REAR
+
+========================================
+        CAMPUS SERVICE CENTRE
+========================================
+ 1. Add student to waiting queue
+ 2. Serve next student (remove from queue)
+ 3. Display waiting students
+ 4. Add student service record (Linked List - insertStudent())
+ 5. Display student service records
+ 6. Search for student record
+ 7. Remove student record
+ 8. Display daily statistics
+ 9. Sort service times
+10. Run sorting experiment
+11. Exit
+========================================
+Select option: 
+Next in line (peek): Maria(221045678)
+Now serving: 221045678  Maria      Registration        12 min
+Service time recorded in the daily statistics array.
+Queue diagram: FRONT -> [Tomas] -> [Ndapewa] -> [Simon] -> REAR
+
+========================================
+        CAMPUS SERVICE CENTRE
+========================================
+ 1. Add student to waiting queue
+ 2. Serve next student (remove from queue)
+ 3. Display waiting students
+ 4. Add student service record (Linked List - insertStudent())
+ 5. Display student service records
+ 6. Search for student record
+ 7. Remove student record
+ 8. Display daily statistics
+ 9. Sort service times
+10. Run sorting experiment
+11. Exit
+========================================
+Select option: 
+Next in line (peek): Tomas(222034512)
+Now serving: 222034512  Tomas      Student Card         5 min
+Service time recorded in the daily statistics array.
+Queue diagram: FRONT -> [Ndapewa] -> [Simon] -> REAR
+
+========================================
+        CAMPUS SERVICE CENTRE
+========================================
+ 1. Add student to waiting queue
+ 2. Serve next student (remove from queue)
+ 3. Display waiting students
+ 4. Add student service record (Linked List - insertStudent())
+ 5. Display student service records
+ 6. Search for student record
+ 7. Remove student record
+ 8. Display daily statistics
+ 9. Sort service times
+10. Run sorting experiment
+11. Exit
+========================================
+Select option: 
+--- DAILY STATISTICS (computed from the service-time array) ---
+Array contents          : [12, 5]
+Total students served   : 2
+Total service time      : 17 minutes
+Average service time    : 8.50 minutes
+Highest service time    : 12 minutes
+Lowest service time     : 5 minutes
+Services over 10 min    : 1
+
+========================================
+        CAMPUS SERVICE CENTRE
+========================================
+ 1. Add student to waiting queue
+ 2. Serve next student (remove from queue)
+ 3. Display waiting students
+ 4. Add student service record (Linked List - insertStudent())
+ 5. Display student service records
+ 6. Search for student record
+ 7. Remove student record
+ 8. Display daily statistics
+ 9. Sort service times
+10. Run sorting experiment
+11. Exit
+========================================
+Select option: 
+Student number: Name          : Service type  : Estimated service time (minutes): Linea joined the queue at position 3.
+Queue diagram: FRONT -> [Ndapewa] -> [Simon] -> [Linea] -> REAR
+
+========================================
+        CAMPUS SERVICE CENTRE
+========================================
+ 1. Add student to waiting queue
+ 2. Serve next student (remove from queue)
+ 3. Display waiting students
+ 4. Add student service record (Linked List - insertStudent())
+ 5. Display student service records
+ 6. Search for student record
+ 7. Remove student record
+ 8. Display daily statistics
+ 9. Sort service times
+10. Run sorting experiment
+11. Exit
+========================================
+Select option: 
+--- WAITING QUEUE (front to rear) ---
+Pos  StudentNo  Name       Service            Est.Time
+1    223041876  Ndapewa    Fees                 8 min
+2    221067341  Simon      Documents            4 min
+3    225099876  Linea      Fees                 7 min
+Front of queue : Ndapewa(223041876)
+Rear of queue  : Linea(225099876)
+Students waiting: 3
+Queue diagram: FRONT -> [Ndapewa] -> [Simon] -> [Linea] -> REAR
+
+========================================
+        CAMPUS SERVICE CENTRE
+========================================
+ 1. Add student to waiting queue
+ 2. Serve next student (remove from queue)
+ 3. Display waiting students
+ 4. Add student service record (Linked List - insertStudent())
+ 5. Display student service records
+ 6. Search for student record
+ 7. Remove student record
+ 8. Display daily statistics
+ 9. Sort service times
+10. Run sorting experiment
+11. Exit
+========================================
+Select option: 
+Student number: Name          : Service type  : Estimated service time (minutes): Insert where?  1 = beginning   2 = end   3 = at a position
+Choice: Record added. List diagram: HEAD -> [Kaleb | next] -> [Maria | next] -> [Tomas | next] -> [Ndapewa | next] -> [Simon | next] -> NULL
+
+========================================
+        CAMPUS SERVICE CENTRE
+========================================
+ 1. Add student to waiting queue
+ 2. Serve next student (remove from queue)
+ 3. Display waiting students
+ 4. Add student service record (Linked List - insertStudent())
+ 5. Display student service records
+ 6. Search for student record
+ 7. Remove student record
+ 8. Display daily statistics
+ 9. Sort service times
+10. Run sorting experiment
+11. Exit
+========================================
+Select option: 
+--- STUDENT SERVICE RECORDS (linked list, head to tail) ---
+Node StudentNo  Name       Service            Est.Time
+1    226044321  Kaleb      Student Card         6 min
+2    221045678  Maria      Registration        12 min
+3    222034512  Tomas      Student Card         5 min
+4    223041876  Ndapewa    Fees                 8 min
+5    221067341  Simon      Documents            4 min
+Total records: 5
+List diagram: HEAD -> [Kaleb | next] -> [Maria | next] -> [Tomas | next] -> [Ndapewa | next] -> [Simon | next] -> NULL
+
+========================================
+        CAMPUS SERVICE CENTRE
+========================================
+ 1. Add student to waiting queue
+ 2. Serve next student (remove from queue)
+ 3. Display waiting students
+ 4. Add student service record (Linked List - insertStudent())
+ 5. Display student service records
+ 6. Search for student record
+ 7. Remove student record
+ 8. Display daily statistics
+ 9. Sort service times
+10. Run sorting experiment
+11. Exit
+========================================
+Select option: 
+Enter the student number to search for: Found at node position 4 after 4 comparison(s).
+StudentNo  Name       Service            Est.Time
+223041876  Ndapewa    Fees                 8 min
+
+========================================
+        CAMPUS SERVICE CENTRE
+========================================
+ 1. Add student to waiting queue
+ 2. Serve next student (remove from queue)
+ 3. Display waiting students
+ 4. Add student service record (Linked List - insertStudent())
+ 5. Display student service records
+ 6. Search for student record
+ 7. Remove student record
+ 8. Display daily statistics
+ 9. Sort service times
+10. Run sorting experiment
+11. Exit
+========================================
+Select option: 
+Enter the student number to remove: List before deletion: HEAD -> [Kaleb | next] -> [Maria | next] -> [Tomas | next] -> [Ndapewa | next] -> [Simon | next] -> NULL
+Record 222034512 removed.
+List after deletion : HEAD -> [Kaleb | next] -> [Maria | next] -> [Ndapewa | next] -> [Simon | next] -> NULL
+
+========================================
+        CAMPUS SERVICE CENTRE
+========================================
+ 1. Add student to waiting queue
+ 2. Serve next student (remove from queue)
+ 3. Display waiting students
+ 4. Add student service record (Linked List - insertStudent())
+ 5. Display student service records
+ 6. Search for student record
+ 7. Remove student record
+ 8. Display daily statistics
+ 9. Sort service times
+10. Run sorting experiment
+11. Exit
+========================================
+Select option: 
+--- STUDENT SERVICE RECORDS (linked list, head to tail) ---
+Node StudentNo  Name       Service            Est.Time
+1    226044321  Kaleb      Student Card         6 min
+2    221045678  Maria      Registration        12 min
+3    223041876  Ndapewa    Fees                 8 min
+4    221067341  Simon      Documents            4 min
+Total records: 4
+List diagram: HEAD -> [Kaleb | next] -> [Maria | next] -> [Ndapewa | next] -> [Simon | next] -> NULL
+
+========================================
+        CAMPUS SERVICE CENTRE
+========================================
+ 1. Add student to waiting queue
+ 2. Serve next student (remove from queue)
+ 3. Display waiting students
+ 4. Add student service record (Linked List - insertStudent())
+ 5. Display student service records
+ 6. Search for student record
+ 7. Remove student record
+ 8. Display daily statistics
+ 9. Sort service times
+10. Run sorting experiment
+11. Exit
+========================================
+Select option: 
+Service times taken from the linked list: [6, 12, 8, 4]
+Choose an algorithm: 1 = Selection  2 = Insertion  3 = Merge  4 = Quick
+Choice: Sorted ascending: [4, 6, 8, 12]
+Merge Sort      comparisons=5          movements=8          time=469405 ns
+
+========================================
+        CAMPUS SERVICE CENTRE
+========================================
+ 1. Add student to waiting queue
+ 2. Serve next student (remove from queue)
+ 3. Display waiting students
+ 4. Add student service record (Linked List - insertStudent())
+ 5. Display student service records
+ 6. Search for student record
+ 7. Remove student record
+ 8. Display daily statistics
+ 9. Sort service times
+10. Run sorting experiment
+11. Exit
+========================================
+Select option: 
+--- DAILY STATISTICS (computed from the service-time array) ---
+Array contents          : [12, 5]
+Total students served   : 2
+Total service time      : 17 minutes
+Average service time    : 8.50 minutes
+Highest service time    : 12 minutes
+Lowest service time     : 5 minutes
+Services over 10 min    : 1
+
+========================================
+        CAMPUS SERVICE CENTRE
+========================================
+ 1. Add student to waiting queue
+ 2. Serve next student (remove from queue)
+ 3. Display waiting students
+ 4. Add student service record (Linked List - insertStudent())
+ 5. Display student service records
+ 6. Search for student record
+ 7. Remove student record
+ 8. Display daily statistics
+ 9. Sort service times
+10. Run sorting experiment
+11. Exit
+========================================
+Select option: 
+Closing the Campus Service Centre. Goodbye.

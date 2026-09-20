@@ -1,0 +1,318 @@
+
+===============================================================
+  TASK A1 - WAITING LINE (QUEUE)
+===============================================================
+SIX ARRIVALS (enqueue):
+  arrival 1: enqueue(Maria(221045678))
+  arrival 2: enqueue(Tomas(222034512))
+  arrival 3: enqueue(Ndapewa(223041876))
+  arrival 4: enqueue(Simon(221067341))
+  arrival 5: enqueue(Johanna(224011290))
+  arrival 6: enqueue(Petrus(223098455))
+
+isEmpty() = false
+peek()    = Maria(221045678)  (first to be served)
+
+--- WAITING QUEUE (front to rear) ---
+Pos  StudentNo  Name       Service            Est.Time
+1    221045678  Maria      Registration        12 min
+2    222034512  Tomas      Student Card         5 min
+3    223041876  Ndapewa    Fees                 8 min
+4    221067341  Simon      Documents            4 min
+5    224011290  Johanna    Academic Enquiry     9 min
+6    223098455  Petrus     Document Collect    15 min
+Front of queue : Maria(221045678)
+Rear of queue  : Petrus(223098455)
+Students waiting: 6
+
+Queue diagram after 6 arrivals:
+  FRONT -> [Maria] -> [Tomas] -> [Ndapewa] -> [Simon] -> [Johanna] -> [Petrus] -> REAR
+
+THREE STUDENTS SERVED (dequeue):
+  service 1: dequeue() removed Maria(221045678) - Registration (12 min)
+            queue now: FRONT -> [Tomas] -> [Ndapewa] -> [Simon] -> [Johanna] -> [Petrus] -> REAR
+  service 2: dequeue() removed Tomas(222034512) - Student Card (5 min)
+            queue now: FRONT -> [Ndapewa] -> [Simon] -> [Johanna] -> [Petrus] -> REAR
+  service 3: dequeue() removed Ndapewa(223041876) - Fees (8 min)
+            queue now: FRONT -> [Simon] -> [Johanna] -> [Petrus] -> REAR
+
+--- WAITING QUEUE (front to rear) ---
+Pos  StudentNo  Name       Service            Est.Time
+1    221067341  Simon      Documents            4 min
+2    224011290  Johanna    Academic Enquiry     9 min
+3    223098455  Petrus     Document Collect    15 min
+Front of queue : Simon(221067341)
+Rear of queue  : Petrus(223098455)
+Students waiting: 3
+
+isEmpty() = false, peek() = Simon(221067341)
+
+WHY A QUEUE: students must be assisted in arrival order. A queue is
+first-in-first-out, so the student who has waited longest is always at the
+front and is served next. enqueue() and dequeue() are both O(1).
+
+===============================================================
+  TASK A2 - STUDENT SERVICE RECORDS (SINGLY LINKED LIST)
+===============================================================
+1) insertStudent at the END (building the list):
+   after insertAtEnd(Maria)   : HEAD -> [Maria | next] -> NULL
+   after insertAtEnd(Tomas)   : HEAD -> [Maria | next] -> [Tomas | next] -> NULL
+   after insertAtEnd(Ndapewa) : HEAD -> [Maria | next] -> [Tomas | next] -> [Ndapewa | next] -> NULL
+
+2) insertStudent at the BEGINNING
+   LIST BEFORE : HEAD -> [Maria | next] -> [Tomas | next] -> [Ndapewa | next] -> NULL
+   LIST AFTER  : HEAD -> [Simon | next] -> [Maria | next] -> [Tomas | next] -> [Ndapewa | next] -> NULL
+   Link change : new node Simon.next now points to the old head (Maria),
+                 and head now points to Simon.
+
+3) insertStudent at a SPECIFIED POSITION (position 3)
+   LIST BEFORE : HEAD -> [Simon | next] -> [Maria | next] -> [Tomas | next] -> [Ndapewa | next] -> NULL
+   LIST AFTER  : HEAD -> [Simon | next] -> [Maria | next] -> [Johanna | next] -> [Tomas | next] -> [Ndapewa | next] -> NULL
+   Link change : node 2 (Maria).next now points to Johanna, and
+                 Johanna.next points to the node that followed Maria (Tomas).
+
+4) displayStudents() - full traversal
+--- STUDENT SERVICE RECORDS (linked list, head to tail) ---
+Node StudentNo  Name       Service            Est.Time
+1    221067341  Simon      Documents            4 min
+2    221045678  Maria      Registration        12 min
+3    224011290  Johanna    Academic Enq.        9 min
+4    222034512  Tomas      Student Card         5 min
+5    223041876  Ndapewa    Fees                 8 min
+Total records: 5
+
+5) searchStudent() - linear search
+   searchStudent("223041876") : Found at node position 5 after 5 comparison(s).
+   -> 223041876  Ndapewa    Fees                 8 min
+   searchStudent("999999999") : Student number 999999999 is not in the record list (5 comparison(s) made).
+
+6) deleteStudent() - deleting Tomas (222034512)
+   LIST BEFORE : HEAD -> [Simon | next] -> [Maria | next] -> [Johanna | next] -> [Tomas | next] -> [Ndapewa | next] -> NULL
+   LIST AFTER  : HEAD -> [Simon | next] -> [Maria | next] -> [Johanna | next] -> [Ndapewa | next] -> NULL
+   Link change : the predecessor node now points past the deleted node,
+                 so Tomas is no longer reachable from the head.
+
+--- STUDENT SERVICE RECORDS (linked list, head to tail) ---
+Node StudentNo  Name       Service            Est.Time
+1    221067341  Simon      Documents            4 min
+2    221045678  Maria      Registration        12 min
+3    224011290  Johanna    Academic Enq.        9 min
+4    223041876  Ndapewa    Fees                 8 min
+Total records: 4
+===============================================================
+  TASK A3 - POSTFIX EXPRESSION EVALUATION USING A STACK
+===============================================================
+
+Evaluating postfix expression: 5 3 + 2 *
+
+Token  Action                       Stack (bottom -> top)
+-------------------------------------------------------------------
+5      push 5                       [ 5 ]  <- top
+3      push 3                       [ 5, 3 ]  <- top
++      pop 3, pop 5, push 5+3=8     [ 8 ]  <- top
+2      push 2                       [ 8, 2 ]  <- top
+*      pop 2, pop 8, push 8*2=16    [ 16 ]  <- top
+-------------------------------------------------------------------
+peek() on the stack gives the final result = 16
+Result of "5 3 + 2 *"  =  16   (expected 16)
+
+Further checks (no trace printed):
+  "12 5 8 4 - * +"      = 32
+  "20 4 / 3 +"          = 8
+  "7 2 - 3 *"           = 15
+
+
+===============================================================
+  TASK A4 - DAILY STATISTICS (ARRAY)
+===============================================================
+Service times of the students served during the simulated day are
+appended to the array one by one as each student is served:
+   recordService(12) -> array = [12]
+   recordService(5) -> array = [12, 5]
+   recordService(8) -> array = [12, 5, 8]
+   recordService(4) -> array = [12, 5, 8, 4]
+   recordService(9) -> array = [12, 5, 8, 4, 9]
+   recordService(15) -> array = [12, 5, 8, 4, 9, 15]
+   recordService(3) -> array = [12, 5, 8, 4, 9, 15, 3]
+   recordService(11) -> array = [12, 5, 8, 4, 9, 15, 3, 11]
+
+--- DAILY STATISTICS (computed from the service-time array) ---
+Array contents          : [12, 5, 8, 4, 9, 15, 3, 11]
+Total students served   : 8
+Total service time      : 67 minutes
+Average service time    : 8.38 minutes
+Highest service time    : 15 minutes
+Lowest service time     : 3 minutes
+Services over 10 min    : 3
+
+All six values are obtained by traversing the array with loops.
+No built-in max(), min(), sum() or average helper is used.
+
+===============================================================
+  TASK A5 - DATA-STRUCTURE JUSTIFICATION
+===============================================================
+QUEUE (waiting line)
+  Students must be helped in the order they arrived. A queue removes only
+  from the front and adds only at the rear, so the arrival order is enforced
+  by the structure itself and cannot be broken by mistake. Both operations
+  are O(1), so a busy queue never slows the program down.
+
+SINGLY LINKED LIST (service records)
+  The number of records for a day is not known in advance and records are
+  inserted and removed in the middle. A linked list grows one node at a time
+  and a deletion only requires re-pointing one next reference - O(1) once the
+  node is located - whereas an array would need every later element shifted.
+
+STACK (postfix evaluation)
+  In a postfix expression, the operands an operator needs are always the two
+  most recently produced values. That is exactly last-in-first-out behaviour,
+  so push() and pop() give the right operands automatically with no searching.
+
+ARRAY (daily statistics)
+  The statistics pass over a fixed set of completed service times and never
+  insert in the middle. An array stores the values contiguously with O(1)
+  index access, which makes a single traversal for total, average, highest,
+  lowest and the over-10-minute count both simple and cache-friendly. It is
+  also the natural input form for the sorting algorithms in Part B.
+
+===============================================================
+  TASK B1 - SELECTION SORT
+===============================================================
+Initial array : [17, 5, 23, 8, 14, 3, 11, 20, 6, 9]
+Pass 1: smallest in unsorted part = 3, swapped into index 0
+        array = [3 | 5, 23, 8, 14, 17, 11, 20, 6, 9]   (values left of | are sorted)
+        running totals: comparisons = 9, swaps = 1
+Pass 2: smallest in unsorted part = 5, already in place
+        array = [3, 5 | 23, 8, 14, 17, 11, 20, 6, 9]   (values left of | are sorted)
+        running totals: comparisons = 17, swaps = 1
+Pass 3: smallest in unsorted part = 6, swapped into index 2
+        array = [3, 5, 6 | 8, 14, 17, 11, 20, 23, 9]   (values left of | are sorted)
+        running totals: comparisons = 24, swaps = 2
+Sorted array  : [3, 5, 6, 8, 9, 11, 14, 17, 20, 23]
+TOTAL comparisons = 45, TOTAL swaps = 7
+
+===============================================================
+  TASK B2 - INSERTION SORT
+===============================================================
+Initial array : [17, 5, 23, 8, 14, 3, 11, 20, 6, 9]
+Pass 1: key = 5 inserted at index 0 (1 shift(s) in this pass)
+        array = [5, 17 | 23, 8, 14, 3, 11, 20, 6, 9]   (values left of | are sorted)
+        running totals: comparisons = 1, shifts = 1
+Pass 2: key = 23 inserted at index 2 (0 shift(s) in this pass)
+        array = [5, 17, 23 | 8, 14, 3, 11, 20, 6, 9]   (values left of | are sorted)
+        running totals: comparisons = 2, shifts = 1
+Pass 3: key = 8 inserted at index 1 (2 shift(s) in this pass)
+        array = [5, 8, 17, 23 | 14, 3, 11, 20, 6, 9]   (values left of | are sorted)
+        running totals: comparisons = 5, shifts = 3
+Sorted array  : [3, 5, 6, 8, 9, 11, 14, 17, 20, 23]
+TOTAL comparisons = 32, TOTAL shifts = 25
+
+===============================================================
+  TASK B3 - MERGE SORT
+===============================================================
+Initial array : [17, 5, 23, 8, 14, 3, 11, 20, 6, 9]
+
+DIVIDE and MERGE trace (indentation shows the recursion depth):
+DIVIDE [17, 5, 23, 8, 14, 3, 11, 20, 6, 9] into [17, 5, 23, 8, 14] and [3, 11, 20, 6, 9]
+   DIVIDE [17, 5, 23, 8, 14] into [17, 5, 23] and [8, 14]
+      DIVIDE [17, 5, 23] into [17, 5] and [23]
+         DIVIDE [17, 5] into [17] and [5]
+            BASE CASE: [17] - a single element is already sorted.
+            BASE CASE: [5] - a single element is already sorted.
+         MERGE  -> [5, 17]
+         BASE CASE: [23] - a single element is already sorted.
+      MERGE  -> [5, 17, 23]
+      DIVIDE [8, 14] into [8] and [14]
+         BASE CASE: [8] - a single element is already sorted.
+         BASE CASE: [14] - a single element is already sorted.
+      MERGE  -> [8, 14]
+   MERGE  -> [5, 8, 14, 17, 23]
+   DIVIDE [3, 11, 20, 6, 9] into [3, 11, 20] and [6, 9]
+      DIVIDE [3, 11, 20] into [3, 11] and [20]
+         DIVIDE [3, 11] into [3] and [11]
+            BASE CASE: [3] - a single element is already sorted.
+            BASE CASE: [11] - a single element is already sorted.
+         MERGE  -> [3, 11]
+         BASE CASE: [20] - a single element is already sorted.
+      MERGE  -> [3, 11, 20]
+      DIVIDE [6, 9] into [6] and [9]
+         BASE CASE: [6] - a single element is already sorted.
+         BASE CASE: [9] - a single element is already sorted.
+      MERGE  -> [6, 9]
+   MERGE  -> [3, 6, 9, 11, 20]
+MERGE  -> [3, 5, 6, 8, 9, 11, 14, 17, 20, 23]
+
+Sorted array  : [3, 5, 6, 8, 9, 11, 14, 17, 20, 23]
+TOTAL comparisons = 23, TOTAL merge moves = 34
+
+===============================================================
+  TASK B4 - QUICK SORT
+===============================================================
+Initial array : [17, 5, 23, 8, 14, 3, 11, 20, 6, 9]
+Pivot rule    : the LAST element of the sub-array (Lomuto partitioning).
+
+Partition stage 1  (sub-array indices 0..9)
+  sub-array before : [17, 5, 23, 8, 14, 3, 11, 20, 6, 9]
+  pivot            : 9 (last element)
+  left partition   : [5, 8, 3, 6]   (values <= pivot)
+  pivot final pos  : index 4
+  right partition  : [23, 11, 20, 17, 14]   (values > pivot)
+  whole array now  : [5, 8, 3, 6, 9, 23, 11, 20, 17, 14]
+
+Partition stage 2  (sub-array indices 0..3)
+  sub-array before : [5, 8, 3, 6]
+  pivot            : 6 (last element)
+  left partition   : [5, 3]   (values <= pivot)
+  pivot final pos  : index 2
+  right partition  : [8]   (values > pivot)
+  whole array now  : [5, 3, 6, 8, 9, 23, 11, 20, 17, 14]
+
+
+Sorted array  : [3, 5, 6, 8, 9, 11, 14, 17, 20, 23]
+TOTAL comparisons = 20, TOTAL swaps = 12
+===============================================================
+  PART C - SORTING ALGORITHM EXPERIMENT
+===============================================================
+Random values 1..999, fixed seed 2026. Each algorithm sorts an identical copy of the same array.
+
+Algorithm        Input Size  Number of Comparisons  Execution Time (ns)
+---------------------------------------------------------------------------
+Selection Sort   20          190                    7838
+Insertion Sort   20          90                     4742
+Merge Sort       20          68                     12513
+Quick Sort       20          81                     6970
+---------------------------------------------------------------------------
+Selection Sort   50          1225                   41309
+Insertion Sort   50          652                    19921
+Merge Sort       50          221                    31260
+Quick Sort       50          271                    14948
+---------------------------------------------------------------------------
+Selection Sort   100         4950                   110915
+Insertion Sort   100         2554                   73273
+Merge Sort       100         548                    64252
+Quick Sort       100         705                    31174
+---------------------------------------------------------------------------
+Selection Sort   500         124750                 2587601
+Insertion Sort   500         61625                  1708888
+Merge Sort       500         3861                   368981
+Quick Sort       500         4878                   209758
+---------------------------------------------------------------------------
+
+ADDITIONAL TEST - ALMOST-SORTED 100-ELEMENT ARRAY
+The 100-element array is first sorted ascending, then five pairs of
+neighbouring values are swapped. All four algorithms receive the same array.
+
+Five neighbouring pairs swapped at indices 10/11, 25/26, 40/41, 60/61, 80/81.
+
+Algorithm        Input Size  Number of Comparisons  Execution Time (ns)
+---------------------------------------------------------------------------
+Selection Sort   100 (almost) 4950                   25338
+Insertion Sort   100 (almost) 104                    4207
+Merge Sort       100 (almost) 357                    25132
+Quick Sort       100 (almost) 4735                   109710
+---------------------------------------------------------------------------
+
+Note: measured times on the first run of a Java program are affected by
+JIT warm-up, so the comparison counts are the more reliable measure.
+
+=== END OF DEMONSTRATION RUN ===
