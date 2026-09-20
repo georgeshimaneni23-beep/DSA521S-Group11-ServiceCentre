@@ -109,11 +109,24 @@ DSA521S_Group11_Project2026/
 ├── src/                            all Java source files
 ├── screenshots/                    console evidence used in the report
 ├── demo_output.txt                 full captured output of DemoRunner
-├── menu_session.txt                full captured output of a menu session
-└── tools/                          helper scripts used to produce the report
+└── menu_session.txt                full captured output of a menu session
 ```
 
-## 5. Notes for the marker
+## 5. Task allocation
+
+| Member | Student number | Assigned responsibility | Main files |
+| --- | --- | --- | --- |
+| George Shimaneni (leader) | 225018497 | Repository setup, integration of all components into the menu system, group testing, final report and submission | `ServiceCentreApp.java` |
+| Mangulukeni Kayoko | 227074404 | Queue: enqueue, dequeue, peek, isEmpty, displayQueue, waiting-line simulation, queue diagrams and justification | `StudentQueue.java`, `Student.java` |
+| Dipundhi Paul Peter | 225058146 | Singly linked list: insertStudent, deleteStudent, searchStudent, displayStudents, memory pointer diagrams and justification | `ServiceRecordList.java` |
+| Nelumbu Rachel | 225049511 | Stack and postfix evaluation: push, pop, peek, step-by-step stack traces, pseudocode and justification | `IntStack.java`, `PostfixEvaluator.java` |
+| Enerist T Shilumbu | 222093951 | Sorting algorithms: Selection, Insertion, Merge and Quick Sort without built-in functions, traces and comparison counters | `Sorters.java`, `SortingExperiment.java`, `ArrayUtil.java`, `DailyStatistics.java` |
+
+Every member reviewed the complete project and is able to explain any section of
+the code, pseudocode, diagrams or algorithm choices, as required by Section 11
+of the project specification.
+
+## 6. Notes for the marker
 
 - `DemoRunner` prints every trace the brief asks for: six arrivals and three
   students served, linked-list diagrams before and after insertion and deletion,
@@ -127,7 +140,7 @@ DSA521S_Group11_Project2026/
 - The postfix stack exercise (Task A3) is kept separate from the service-centre
   menu, as the brief requires.
 
-## 6. Academic integrity
+## 7. Academic integrity
 
 All group members participated in the development, understand the submitted
 data structures, algorithms, pseudocode and source code, and can explain and
