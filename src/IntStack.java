@@ -4,6 +4,8 @@
  * IntStack.java
  * A LIFO stack of double values implemented from scratch on a plain array
  * that grows when it becomes full. No built-in Stack class is used.
+ * 
+ * Author: Nelumbu Rachel (225049511)- Stack operations and postfix evaluation traces
  */
 public class IntStack {
 
