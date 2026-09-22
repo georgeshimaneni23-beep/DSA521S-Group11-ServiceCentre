@@ -11,6 +11,7 @@
  *   deleteStudent(...)  - by student number
  *   searchStudent(...)  - linear search by student number or by name
  *   displayStudents()   - traversal from head to the last node
+ * Author: Dipundhi Paul Peter (225058146) - Singly linked list and memory pointer programs
  */
 public class ServiceRecordList {
 
