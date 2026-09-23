@@ -1,3 +1,4 @@
+* Author: Enerist T Shilumbu(222093951)
 /*
  * DSA521S - PART B: the four sorting algorithms.
  *
