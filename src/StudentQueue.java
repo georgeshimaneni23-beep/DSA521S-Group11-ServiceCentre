@@ -11,7 +11,7 @@
  * peek()     - O(1)
  * isEmpty()  - O(1)
  * displayQueue() - O(n) traversal from front to rear
- * Author:Mangulukeni Kayoko (226074404) - QUEUE Implementation and waiting-line simulation
+ * Author:Mangulukeni Kayoko (227074404) - QUEUE Implementation and waiting-line simulation
  */
 public class StudentQueue {
 

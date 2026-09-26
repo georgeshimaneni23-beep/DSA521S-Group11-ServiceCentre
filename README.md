@@ -117,11 +117,11 @@ DSA521S_Group11_Project2026/
 
 | Member | Student number | Assigned responsibility | Main files |
 | --- | --- | --- | --- |
-| George Shimaneni (leader) | 225018497 | Repository setup, integration of all components into the menu system, group testing, final report and submission | `ServiceCentreApp.java` |
+| George Shimaneni (leader) | 225018497 | Repository setup, array daily statistics (Task A4), integration of all components into the menu system, group testing, final report and submission | `ServiceCentreApp.java`, `DailyStatistics.java` |
 | Mangulukeni Kayoko | 227074404 | Queue: enqueue, dequeue, peek, isEmpty, displayQueue, waiting-line simulation, queue diagrams and justification | `StudentQueue.java`, `Student.java` |
 | Dipundhi Paul Peter | 225058146 | Singly linked list: insertStudent, deleteStudent, searchStudent, displayStudents, memory pointer diagrams and justification | `ServiceRecordList.java` |
 | Nelumbu Rachel | 225049511 | Stack and postfix evaluation: push, pop, peek, step-by-step stack traces, pseudocode and justification | `IntStack.java`, `PostfixEvaluator.java` |
-| Enerist T Shilumbu | 222093951 | Sorting algorithms: Selection, Insertion, Merge and Quick Sort without built-in functions, traces and comparison counters | `Sorters.java`, `SortingExperiment.java`, `ArrayUtil.java`, `DailyStatistics.java` |
+| Enerist T Shilumbu | 222093951 | Sorting algorithms: Selection, Insertion, Merge and Quick Sort without built-in functions, traces, comparison counters and the Part C sorting experiment | `Sorters.java`, `SortingExperiment.java`, `ArrayUtil.java` |
 
 Every member reviewed the complete project and is able to explain any section of
 the code, pseudocode, diagrams or algorithm choices, as required by Section 11
