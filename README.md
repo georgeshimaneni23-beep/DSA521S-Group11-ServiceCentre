@@ -105,7 +105,8 @@ statistics array, which is what option 8 then reports on.
 DSA521S_Group11_Project2026/
 ├── README.md                       this file
 ├── PSEUDOCODE.md                   Part E pseudocode (also inside the report)
-├── DSA521S_Group11_Project_Report.docx  the project report (Part F)
+├── DSA521S_Group11_Project_Report.pdf   the project report (Part F)
+├── DSA521S_Group11_Project_Report.docx  editable copy of the report
 ├── src/                            all Java source files
 ├── screenshots/                    console evidence used in the report
 ├── demo_output.txt                 full captured output of DemoRunner
